@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Alcaldía Municipal de San Pedro</h1>
+        <p>Sistema de Licitaciones</p>
+        <hr />
+        <h2>Reglas de la licitación</h2>
+        <ol>
+            <li>Al momento de ingresar, el participante inicia su oferta con el valor base que es de $150.000.000 si
+                nadie más ha ingresado a la licitación; de lo contrario ingresa con una oferta igual a la mayor oferta
+                de la sala, más un valor alaeatorio entre $5.000.000 y $10.000.000
+            </li>
+            <li>
+                La asignación del contrato también es aleatoria basada en un ensayo de Bernoulli con probabilidad de
+                éxito (PB) igual a un número aleatorio entre (0.3 y 0.8) y la asignación se hace de forma inmediata.
+                Esto significa que al momento de ingresar a la licitación o hacer una oferta, se genera un número
+                aleatorio para definir PB; luego se genera otro número aleatorio en el mismo rango (0.3 y 0.8) que es la
+                probabilidad de éxito del ofertante (PO). Si PO > PB, entonces el contrato se asigna al contratista con
+                el precio ofertado. Si esta condición no se cumple, se siguen esperando ofertas hasta que la condición
+                se cumpla
+            </li>
+            <li>
+                Los participantes solo pueden ofertar con tiempos de espera de 30 segundos. Esto quiere decir que el
+                botón para hacer ofertas solo se activa luego de 30 segundos desde la última oferta.
+            </li>
+        </ol>
+        <hr />
+        <h2>Formulario de inscripción</h2>
+        <form onsubmit="event.preventDefault(); addLicitacion()">
+            <div class="form-group">
+                <label for="nit">NIT</label>
+                <input type="text" class="form-control" id="nit" placeholder="Número de Identificación Tributaria">
+            </div>
+            <div class="form-group">
+                <label for="razonsocial">Razón Social</label>
+                <input type="text" class="form-control" id="razonsocial" placeholder="Nombre del participante">
+            </div>
+            <button id="myBtn" type="submit" class="btn btn-primary" value="Send">Registrarse</button>
+        </form>
+        <hr />
+        <h2>Listado de ofertas</h2>
+        <!--Reemplace estos párrafos por las ofertas reales recibidas-->
+        <div id="licitaciones"></div>
+        <p>Consorcio F&R [Oferta no aceptada]</p>
+        <p>Grupo Fernánez Gómez [Oferta no aceptada]</p>
+        <p>Unión Temporal Sinergia [Oferta no aceptada]</p>
+        <p>Grupo DRFE [<strong>Oferta aceptada. Valor: $168.054.320</strong>]</p>
+        <button id="ofertarbtn" type="submit" class="btn btn-primary" desabled="true" onclick="Ofertar">Ofertar</button>
+    </div>
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
